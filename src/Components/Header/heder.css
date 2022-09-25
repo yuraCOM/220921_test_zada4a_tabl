@@ -1,0 +1,18 @@
+.Header {
+    display: flex;
+    align-items: center;
+    margin: 15px 0;
+}
+
+.Header p {
+    margin: 0 10px;
+    padding: 0;
+}
+
+.Header button {
+    margin: 0px 15px;
+}
+
+.Header .mb-0 {
+    width: 40%;
+}

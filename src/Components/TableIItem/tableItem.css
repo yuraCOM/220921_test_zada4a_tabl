@@ -1,0 +1,11 @@
+.table-item {
+    cursor: pointer;
+}
+
+.table-item:hover {
+    background-color: rgba(8, 236, 153, 0.536);
+}
+
+.active {
+    background-color: rgba(156, 241, 9, 0.948);
+}

@@ -1,24 +1,23 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
+import MainTable from './Components/MainTabel/MainTable';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { Context, store } from './constants'
+import Header from './Components/Header/Header';
+
 
 function App() {
+
+  const [contex, setContext] = useState(store)
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Context.Provider value={[contex, setContext]}>
+      <div className="App container">
+        <Header />
+        <MainTable />
+      </div>
+    </Context.Provider>
+
   );
 }
 

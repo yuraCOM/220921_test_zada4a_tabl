@@ -1,0 +1,25 @@
+.main-table-head th {
+    cursor: pointer;
+}
+
+.main-table-head th:hover {
+    background-color: aqua;
+}
+
+.spinner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+}
+
+.spinner h5 {
+    color: rgb(17, 177, 217);
+    margin-right: 15px;
+}
+
+.arrow-sort {
+    color: green;
+    display: inline-block;
+    margin: 0 0 0 5px;
+}

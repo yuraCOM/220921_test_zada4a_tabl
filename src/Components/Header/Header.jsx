@@ -48,8 +48,9 @@ const Header = () => {
                 <p>Select DB =&gt;</p>
                 <Button onClick={() => fetchDB(context.urlDBsmall)} variant="primary">SmallDB</Button>{' '}
                 <Button onClick={() => fetchDB(context.urlDBbig)} variant="success">BigDB</Button>{' '}
-                <Button onClick={() => addContact()} variant="info">add Contact</Button>{' '}
-                <Search />
+                {/* {!context.start && <h4> &lt;=== Выберите данные...</h4>} */}
+                {context.currentDB.length ? <Button onClick={() => addContact()} variant="info">Add-Contact</Button> : false}
+                {context.currentDB.length ? <Search /> : false}
             </div>
 
             <MsgModal
@@ -57,6 +58,7 @@ const Header = () => {
                 onHide={() => setShow(false)}
                 msg={info}
             />
+
             <AddContactModal
                 show={showAddContact}
                 onHide={() => setShowAddContact(false)} />

@@ -56,10 +56,10 @@ const MainTable = () => {
 
     return (
         <div>
-            {!context.start && <h3>Выберите данные...</h3>}
+            {/* {!context.start && <h3>Выберите данные...</h3>} */}
             {context.paginateDB.length >= 50 && <MyPagination />}
 
-            <Table striped bordered hover>
+            {context.start && <Table striped bordered hover>
                 <thead className='main-table-head'>
                     <tr>
                         {Object.keys(tableHeadArr).map(el =>
@@ -76,7 +76,10 @@ const MainTable = () => {
                         <TableItem key={str_randLen(7)} item={item} i={i + 1} />
                     )}
                 </tbody>
-            </Table>
+
+            </Table>}
+
+            {!context.start && <h3>Выберите данные...</h3>}
 
             {context.start && !context.currentDB.length &&
                 <div className='spinner' >

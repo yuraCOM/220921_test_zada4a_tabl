@@ -1,6 +1,6 @@
 https://yuracom.github.io/220921_test_zada4a_tabl/
 
-Тестовое задание на позицию frontend разработчика (ориганал https://github.com/fugr-ru/frontend-javascript-test#readme)
+Тестовое задание на позицию frontend разработчика (оригинал https://github.com/fugr-ru/frontend-javascript-test#readme)
 
 !!! - базу данных сделал на Heroku - запустил на нем json-sever c базой данных - оригинальыне сслыки блокировались
 https://user4db.herokuapp.com/

@@ -28,11 +28,11 @@ const Search = () => {
         else {
             let searchDB = context.paginateDB.filter(item => {
 
-                return item["firstName"].toString().toLowerCase().includes(txt)
-                    || item["lastName"].toString().toLowerCase().includes(txt)
-                    || item["email"].toString().toLowerCase().includes(txt)
-                    || item["phone"].toString().toLowerCase().includes(txt)
-                    || item["id"].toString().toLowerCase().includes(txt)
+                return item.name.first.toString().toLowerCase().includes(txt)
+                    || item.name.last.toString().toLowerCase().includes(txt)
+                    || item.email.toString().toLowerCase().includes(txt)
+                    || item.phone.toString().toLowerCase().includes(txt)
+                // || item["id"].toString().toLowerCase().includes(txt)
             }
             )
 

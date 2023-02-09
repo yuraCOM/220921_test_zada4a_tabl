@@ -40,15 +40,38 @@ const MainTable = () => {
 
         if (type === 'id') {
             !sortDirect ?
-                sortData.sort((x, y) => x.id - y.id) :
-                sortData.sort((x, y) => y.id - x.id)
+                sortData.sort((x, y) =>
+                    Date.parse(x.registered.date) - Date.parse(y.registered.date)
+                ) :
+                sortData.sort((x, y) => Date.parse(y.registered.date) - Date.parse(x.registered.date))
         }
 
-        if (type === 'firstName' || type === 'lastName' || type === 'email' || type === 'phone') {
+        if (type === 'firstName') {
             !sortDirect ?
-                sortData.sort((x, y) => x[type].localeCompare(y[type])) :
-                sortData.sort((x, y) => y[type].localeCompare(x[type]))
+                sortData.sort((x, y) => x.name.first.localeCompare(y.name.first)) :
+                sortData.sort((x, y) => y.name.first.localeCompare(x.name.first))
         }
+
+        if (type === 'lastName') {
+            !sortDirect ?
+                sortData.sort((x, y) => x.name.last.localeCompare(y.name.last)) :
+                sortData.sort((x, y) => y.name.last.localeCompare(x.name.last))
+        }
+
+        if (type === 'email') {
+            !sortDirect ?
+                sortData.sort((x, y) => x.email.localeCompare(y.email)) :
+                sortData.sort((x, y) => y.email.localeCompare(x.email))
+        }
+
+        if (type === 'phone') {
+            !sortDirect ?
+                sortData.sort((x, y) => x.phone.localeCompare(y.phone)) :
+                sortData.sort((x, y) => y.phone.localeCompare(x.phone))
+        }
+        // !sortDirect ?
+        //     sortData.sort((x, y) => x[type].localeCompare(y[type])) :
+        //     sortData.sort((x, y) => y[type].localeCompare(x[type]))
 
         setContext({ ...context, "currentDB": sortData })
         setSortDirect(!sortDirect)
@@ -56,7 +79,6 @@ const MainTable = () => {
 
     return (
         <div>
-            {/* {!context.start && <h3>Выберите данные...</h3>} */}
             {context.paginateDB.length >= 50 && <MyPagination />}
 
             {context.start && <Table striped bordered hover>

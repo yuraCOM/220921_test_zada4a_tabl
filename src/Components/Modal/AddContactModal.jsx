@@ -13,12 +13,39 @@ const AddContactModal = ({ show, onHide }) => {
 
     const [checkAll, setCheckAll] = useState(true)
 
+    let x = {
+        "name": {
+            "first": "",
+            "last": ""
+        },
+        "registered": {
+            "date": 0,
+        },
+        "location": {
+            "street": {
+                "name": "Vellala St"
+            },
+            "city": "",
+            "state": "",
+            "postcode": '',
+        },
+        "email": "",
+        "login": {
+            "username": "",
+        },
+
+        "phone": "",
+
+    }
+
     let startSample = {
+
         "id": '',
         "firstName": "",
         "lastName": "",
         "email": "",
         "description": "",
+        "phone": "",
         "address": {
             "streetAddress": "-------",
             "city": "-------",
@@ -52,7 +79,15 @@ const AddContactModal = ({ show, onHide }) => {
 
     const addContactHandler = () => {
         onHide()
-        context.paginateDB.unshift(newContact)
+
+        x.email = newContact.email
+        x.name.first = newContact.firstName
+        x.name.last = newContact.lastName
+        // x.registered.date = Number(newContact.id)
+        x.phone = newContact.phone
+        console.log(x);
+
+        context.paginateDB.unshift(x)
         setContext({ ...context, "currentDB": context.paginateDB })
     };
 
@@ -96,7 +131,9 @@ const AddContactModal = ({ show, onHide }) => {
             }
         }
 
+
         setNewContact({ ...newContact, [name]: value.trim() })
+
 
     };
 
@@ -117,7 +154,7 @@ const AddContactModal = ({ show, onHide }) => {
                             readOnly
                             defaultValue={newContact.id}
                             onFocus={(e) => {
-                                e.target.value = randomN()
+                                e.target.value = Date.now()
                                 handleInputChange(e)
                             }}
                             aria-label="Small"

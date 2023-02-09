@@ -22,7 +22,8 @@ const Header = () => {
         await setContext({ ...context, "currentDB": [], 'start': true })
         // await setContext({ ...context, 'start': true })
         let data = await getDB(link)
-        await data.sort((x, y) => x.id - y.id)
+        console.log(data);
+        await data.sort((x, y) => x.id.value - y.id.value)
         let totalPages = Math.ceil(data.length / context.pageLimit)
         let curPagDB = await data.slice(0, context.pageLimit)
         await setContext(
